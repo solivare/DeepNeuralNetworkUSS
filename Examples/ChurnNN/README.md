@@ -7,15 +7,15 @@ Este proyecto entrena una red neuronal para predecir si un cliente abandonará u
 ## 📁 Estructura del Proyecto
 
 ```
-churn_example/
+ChurnNN/
 ├── notebooks/
-│   └── 01_main.ipynb              # Notebook con entrenamiento y evaluación
+│   └── main.ipynb              # Notebook con entrenamiento y evaluación
 ├── src/
 │   ├── model.py                   # Definición del modelo Keras
 │   ├── utils.py                   # Funciones de visualización y métricas
 │   └── config.yaml                # Configuración editable del modelo
 ├── data/
-│   └── churn_dataset_completo.csv # Dataset simulado
+│   └── churn_dataset.csv # Dataset simulado
 ├── setup.sh                       # Script para preparar entorno local
 ├── requirements.txt               # Librerías necesarias
 └── README.md                      # Este archivo
@@ -30,9 +30,9 @@ churn_example/
 1. Ve a [https://colab.research.google.com](https://colab.research.google.com)
 2. Haz clic en la pestaña “GitHub” y busca:
    ```
-   solivare/churn_example
+   solivare/ChurnNN
    ```
-3. Abre el archivo `notebooks/01_main.ipynb`
+3. Abre el archivo `notebooks/main.ipynb`
 4. Ejecuta las celdas que:
    - Clonan el repositorio (si no estás ya en él)
    - Instalan dependencias (`!pip install -r requirements.txt`)
@@ -46,8 +46,8 @@ churn_example/
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/solivare/churn_example.git
-   cd churn_example
+   git clone https://github.com/solivare/DeepNeuralNetworkUSS.git
+   cd Examples/ChurnNN
    ```
 
 2. Corre el script de configuración:
@@ -66,24 +66,6 @@ churn_example/
      ```
 
 4. Abre `notebooks/main.ipynb` y ejecútalo paso a paso.
-
----
-
-## 🧠 ¿Cómo crear tu cuenta de GitHub?
-
-1. Ve a [https://github.com/](https://github.com/)
-2. Haz clic en **Sign up**
-3. Ingresa tu email y una contraseña segura
-4. Elige un nombre de usuario (puedes usar tu nombre real o algo profesional)
-5. Verifica tu cuenta por correo
-6. Una vez dentro, haz clic en **New repository**
-   - Nómbralo por ejemplo `churn_clasificador`
-   - Selecciona "Public" o "Private"
-   - No inicialices con README si vas a subir tu código desde Colab
-
-Ahora puedes subir tus archivos manualmente o usar comandos de Git desde Colab o tu computador.
-
----
 
 ## 📦 ¿Qué se espera de ti?
 
