@@ -1,0 +1,12 @@
+# Hiperparámetros generales del entrenamiento
+batch_size: 32          # Tamaño del batch: número de ejemplos por iteración
+epochs: 20              # Cantidad de pasadas completas al dataset
+learning_rate: 0.001    # Tasa de aprendizaje para el optimizador
+test_size: 0.2          # Proporción del dataset reservada para testing
+random_state: 42        # Semilla para asegurar reproducibilidad
+
+# Arquitectura del modelo de red neuronal
+model:
+  hidden_layers: [64, 32]       # Lista con neuronas por capa oculta (2 capas: 64 y 32 unidades)
+  activation: relu              # Función de activación para capas ocultas
+  output_activation: sigmoid    # Activación de la capa de salida (clasificación binaria)
