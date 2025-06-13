@@ -29,29 +29,21 @@ ChurnNN/
 
 ## 🚀 Ejecución del Proyecto en Google Colab
 
-Este proyecto puede ejecutarse fácilmente desde **Google Colab**. Solo sigue los pasos en orden:
+Puedes ejecutar este proyecto de forma totalmente automática desde Google Colab usando el siguiente notebook combinado:
 
-### 🔧 1. Preparar el entorno
+### 🔄 Versión única (Setup + Modelo)
 
-Abre el siguiente notebook para clonar el repositorio, instalar las dependencias y configurar los paths automáticamente:
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/ChurnNN/notebooks/ChurnNN_Full.ipynb)
 
-[![Abrir 0.Setup.ipynb en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/ChurnNN/notebooks/0.Setup.ipynb)
+📁 Archivo: `Examples/ChurnNN/notebooks/ChurnNN_Full.ipynb`
 
-📁 Archivo: `notebooks/0.Setup.ipynb`
+Este notebook realiza:
 
----
-
-### 🧠 2. Ejecutar el modelo de churn
-
-Una vez preparado el entorno, abre el notebook principal donde se realiza todo el flujo de entrenamiento, visualización y evaluación del modelo de churn.
-
-[![Abrir 1.Main.ipynb en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/ChurnNN/notebooks/1.Main.ipynb)
-
-📁 Archivo: `notebooks/1.Main.ipynb`
-
----
-
-> ⚠️ **Importante:** siempre debes ejecutar primero `0.Setup.ipynb` antes de cualquier otro notebook del proyecto, para que las rutas y dependencias estén correctamente configuradas.
+- Clonación del repositorio
+- Instalación de dependencias
+- Configuración automática de rutas
+- Entrenamiento del modelo
+- Visualización y evaluación final
 
 ---
 
