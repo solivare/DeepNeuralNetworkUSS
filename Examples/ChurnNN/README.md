@@ -27,18 +27,31 @@ ChurnNN/
 
 ### ✅ Opción 1: Google Colab (RECOMENDADA)
 
-1. Ve a [https://colab.research.google.com](https://colab.research.google.com)
-2. Haz clic en la pestaña “GitHub” y busca:
-   ```
-   solivare/ChurnNN
-   ```
-3. Abre el archivo `notebooks/main.ipynb`
-4. Ejecuta las celdas que:
-   - Clonan el repositorio (si no estás ya en él)
-   - Instalan dependencias (`!pip install -r requirements.txt`)
-   - Agregan el path para importar desde `src/`
+## 🚀 Ejecución del Proyecto en Google Colab
 
-⚠️ En Colab **NO necesitas ejecutar `setup.sh`**. Todo se hace desde celdas.
+Este proyecto puede ejecutarse fácilmente desde **Google Colab**. Solo sigue los pasos en orden:
+
+### 🔧 1. Preparar el entorno
+
+Abre el siguiente notebook para clonar el repositorio, instalar las dependencias y configurar los paths automáticamente:
+
+[![Abrir 0.Setup.ipynb en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/ChurnNN/notebooks/0.Setup.ipynb)
+
+📁 Archivo: `notebooks/0.Setup.ipynb`
+
+---
+
+### 🧠 2. Ejecutar el modelo de churn
+
+Una vez preparado el entorno, abre el notebook principal donde se realiza todo el flujo de entrenamiento, visualización y evaluación del modelo de churn.
+
+[![Abrir 1.Main.ipynb en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/ChurnNN/notebooks/1.Main.ipynb)
+
+📁 Archivo: `notebooks/1.Main.ipynb`
+
+---
+
+> ⚠️ **Importante:** siempre debes ejecutar primero `0.Setup.ipynb` antes de cualquier otro notebook del proyecto, para que las rutas y dependencias estén correctamente configuradas.
 
 ---
 
