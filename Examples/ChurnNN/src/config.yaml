@@ -8,6 +8,6 @@ model:
 
 training:
   batch_size: 32              # Tamaño de batch
-  epochs: 50                  # Número de épocas de entrenamiento
+  epochs: 30                  # Número de épocas de entrenamiento
   optimizer: adam             # Optimizador
   loss: binary_crossentropy   # Función de pérdida (clasificación binaria)
