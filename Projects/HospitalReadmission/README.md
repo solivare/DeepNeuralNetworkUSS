@@ -127,4 +127,4 @@ Debes descargar manualmente el archivo `diabetic_data.csv` desde el sitio de UCI
 
 Puedes ejecutar este proyecto directamente en Google Colab haciendo clic en el siguiente botón:
 
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Projects/HospitalReadmission/runColab.ipynb)
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Projects/HospitalReadmission/notebooks/runColab.ipynb)
