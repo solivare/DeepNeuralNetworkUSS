@@ -3,8 +3,8 @@ import numpy as np
 import os
 
 # Rutas de entrada y salida
-INPUT_PATH = "../data/diabetic_data.csv"
-OUTPUT_PATH = "../data/hospital_readmission_clean.csv"
+INPUT_PATH = "data/diabetic_data.csv"
+OUTPUT_PATH = "./data/hospital_readmission_clean.csv"
 
 # Carga inicial de datos
 def load_data(path):

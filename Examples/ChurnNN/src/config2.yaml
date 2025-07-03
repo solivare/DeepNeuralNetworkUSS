@@ -1,0 +1,16 @@
+# Configuración del modelo neuronal y entrenamiento
+# Estos parámetros son cargados por main.ipynb y usados por model.py
+
+model:
+  hidden_units: [32, 16]       # Neuronas en capas ocultas
+  activation: selu            # Función de activación de las capas ocultas
+  output_activation: sigmoid  # Activación de la salida (probabilidad de churn)
+
+training:
+  optimizer: sgd
+  loss: mae
+  epochs: 50  # subirlo si no hay overfitting
+  batch_size: 32  # probar 32, 64
+  early_stopping: True
+  patience: 10
+  lr_schedule: True
