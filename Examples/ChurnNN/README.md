@@ -34,7 +34,7 @@ weights = class_weight.compute_class_weight(class_weight='balanced',
 
 class_weights = dict(zip(np.unique(y_train), weights))
 
-Antes de aplicar balanceo el Accuracy del modelo era de 87% y la precisión del 92,6%. Sin embargo la métrica más relevante del modelo (Recall) era del 89%. Sin embargo, luego de aplicar el balanceo de clases, y luego de varias iteraciones en el archivo config.yaml, no se logró mejorar el Recall de la clase 1, el cual es la mas importante del modelo (Un cliente que pude haber retenido.). La máxima encontrada fué 87% con los siguientes parámetros:
+Antes de aplicar balanceo el Accuracy del modelo era de 87% y la precisión del 92,6%. Sin embargo la métrica más relevante del modelo (Recall) era del 89%. Sin embargo, luego de aplicar el balanceo de clases, y luego de varias iteraciones en el archivo config.yaml, no se logró mejorar el Recall de la clase 1, el cual es la mas importante del modelo (Un cliente que pude haber retenido.). La máxima encontrada fué 86% con los siguientes parámetros:
 
 model:
   hidden_units: [64, 32, 16]       
