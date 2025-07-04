@@ -2,12 +2,12 @@
 # Estos parámetros son cargados por main.ipynb y usados por model.py
 
 model:
-  hidden_units: [16, 8]       # Neuronas en capas ocultas
+  hidden_units: [32, 16, 8]       # Neuronas en capas ocultas
   activation: relu            # Función de activación de las capas ocultas
   output_activation: sigmoid  # Activación de la salida (probabilidad de churn)
 
 training:
-  batch_size: 32              # Tamaño de batch
+  batch_size: 16              # Tamaño de batch
   epochs: 50                  # Número de épocas de entrenamiento
   optimizer: adam             # Optimizador
   loss: binary_crossentropy   # Función de pérdida (clasificación binaria)

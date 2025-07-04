@@ -23,64 +23,17 @@ ChurnNN/
 
 ---
 
-## 🧪 ¿Cómo correr este proyecto?
+## Cambios ejecutados al archivo main.ipynb y config.yaml para mejorar el modelo base
 
-### ✅ Opción 1: Google Colab (RECOMENDADA)
+### Balanceo de clases:
+Se importó la librería "class_weight" y se implementó de la siguiente forma:
 
-## 🚀 Ejecución del Proyecto en Google Colab
+weights = class_weight.compute_class_weight(class_weight='balanced',
+                                            classes=np.unique(y_train),
+                                            y=y_train)
 
-Puedes ejecutar este proyecto de forma totalmente automática desde Google Colab usando el siguiente notebook combinado:
+class_weights = dict(zip(np.unique(y_train), weights))
 
-### 🔄 Versión única (Setup + Modelo)
-
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/ChurnNN/notebooks/ChurnNN_Full.ipynb)
-
-📁 Archivo: `Examples/ChurnNN/notebooks/ChurnNN_Full.ipynb`
-
-Este notebook realiza:
-
-- Clonación del repositorio
-- Instalación de dependencias
-- Configuración automática de rutas
-- Entrenamiento del modelo
-- Visualización y evaluación final
-
----
-
-### 💻 Opción 2: Ejecutar en tu computador (VS Code / Jupyter)
-
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/solivare/DeepNeuralNetworkUSS.git
-   cd Examples/ChurnNN
-   ```
-
-2. Corre el script de configuración:
-   ```bash
-   bash setup.sh
-   ```
-
-3. Activa el entorno virtual:
-   - En Linux/macOS:
-     ```bash
-     source venv/bin/activate
-     ```
-   - En Windows:
-     ```cmd
-     venv\Scripts\activate
-     ```
-
-4. Abre `notebooks/main.ipynb` y ejecútalo paso a paso.
-
-## 📦 ¿Qué se espera de ti?
-
-- Leer y entender cada bloque del notebook
-- Ejecutar el modelo y visualizar resultados
-- Subir tu versión modificada a tu repositorio de GitHub
-- Documentar tus cambios en el `README.md` personal
-
----
-
-📬 ¿Dudas? Contacta al profesor o deja un issue en el repositorio.
+Antes de aplicar balanceo el Accuracy del modelo era de 87% y la precisión del 91,7%. Sin embargo la métrica más relevante del modelo (Recall) era del 88
 
 
