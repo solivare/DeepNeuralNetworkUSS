@@ -1,0 +1,35 @@
+paths:
+  original: data/creditcard.csv
+  processed: data/processed
+  train: data/processed/train.csv         # balanceado
+  train_full: data/processed/train_full.csv # completo (para class_weight)
+  val: data/processed/val.csv             # común a ambos
+  test: data/processed/test.csv           # test completo
+
+model:
+  optimizer: adam
+  #model_type: simple
+  #dropout: 0.5
+  #l2: 0.001
+  model_type: deep
+  units1: 32
+  units2: 16
+  dropout: 0.3
+  l2: 0.0
+
+
+training:
+  epochs: 50
+  batch_size: 128
+  use_class_weight: true      # True = usa train_full.csv + class_weight
+  early_stopping:
+    enabled: true
+    patience: 5
+
+preprocessing:
+  sample_size: 1000000        # Reduce tamaño total (None = usar completo)
+  subsample: false           # True = balancear clases (undersampling)
+  random_state: 42
+
+evaluation:
+  use_balanced_test: false   # true = usa test_balanced.csv

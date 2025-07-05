@@ -9,7 +9,8 @@ Este proyecto entrena una red neuronal para predecir si un cliente abandonará u
 ```
 ChurnNN/
 ├── notebooks/
-│   └── main.ipynb              # Notebook con entrenamiento y evaluación
+│   └── runColab.ipynb              # Notebook con entrenamiento y evaluación para ser ejecutado desde Colab
+│   └── runLocal.yaml               # Notebook con entrenamiento y evaluación para ser ejecutado localmente
 ├── src/
 │   ├── model.py                   # Definición del modelo Keras
 │   ├── utils.py                   # Funciones de visualización y métricas
