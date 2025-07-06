@@ -19,6 +19,8 @@ def build_model(config):
     # Capas ocultas definidas por configuración
     for units in config['model']['hidden_units']:
         model.add(layers.Dense(units, activation=config['model']['activation']))
+        model.add(layers.Dropout(config['model']['dropout_rate']))
+
 
     # Capa de salida para clasificación binaria
     model.add(layers.Dense(1, activation=config['model']['output_activation']))

@@ -5,9 +5,13 @@ model:
   hidden_units: [16, 8]       # Neuronas en capas ocultas
   activation: relu            # Función de activación de las capas ocultas
   output_activation: sigmoid  # Activación de la salida (probabilidad de churn)
+  dropout_rate: 0.3           # 🔸 NUEVO: Tasa de Dropout para regularización
 
 training:
   batch_size: 32              # Tamaño de batch
   epochs: 50                  # Número de épocas de entrenamiento
   optimizer: adam             # Optimizador
   loss: binary_crossentropy   # Función de pérdida (clasificación binaria)
+  early_stopping:             # 🔸 NUEVO: Detener si no mejora
+    patience: 5
+    monitor: val_loss

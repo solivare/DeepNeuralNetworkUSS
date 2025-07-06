@@ -80,6 +80,22 @@ Este notebook realiza:
 - Documentar tus cambios en el `README.md` personal
 
 ---
+## Mejoras Aplicadas al Modelo
+
+Con el objetivo de mejorar la capacidad de generalización y eficiencia del modelo original, se realizaron las siguientes mejoras:
+
+- **Regularización con Dropout**: Se agregó una capa `Dropout` después de cada capa oculta con una tasa del 30% (`dropout_rate: 0.3`), para evitar sobreajuste.
+- **EarlyStopping**: Se implementó la detención anticipada del entrenamiento si no hay mejora en la pérdida de validación durante 5 épocas consecutivas (`patience: 5`).
+
+### Resultados tras mejoras
+
+- El modelo se detuvo automáticamente en la **época 23/50**, lo que redujo el tiempo de entrenamiento innecesario.
+- **Accuracy final**: 0.88
+- **F1-score para clase "Churn" (1)**: 0.91
+- Las curvas de entrenamiento muestran una menor diferencia entre precisión y pérdida de entrenamiento y validación.
+
+Estas mejoras permiten un modelo más eficiente, con menor riesgo de sobreajuste, y mantienen un rendimiento competitivo respecto a la versión base.
+
 
 📬 ¿Dudas? Contacta al profesor o deja un issue en el repositorio.
 
