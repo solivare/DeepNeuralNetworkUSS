@@ -34,10 +34,10 @@ HospitalReadmission/
 │   └── hospital_readmission_clean.csv  # Dataset limpio generado
 │
 ├── notebooks/
-│   ├── 1.EDA.ipynb            # Análisis exploratorio
-│   ├── 2.ModeloBase.ipynb     # Modelo de regresión logística
-│   ├── 3.RedNeuronal.ipynb    # Entrenamiento con Keras
-│   └── 4.Evaluacion.ipynb     # Comparación de modelos y métricas
+│   ├── EDA.ipynb            # Análisis exploratorio
+│   ├── ModeloBase.ipynb     # Modelo de regresión logística
+│   ├── RedNeuronal.ipynb    # Entrenamiento con Keras
+│   └── Evaluacion.ipynb     # Comparación de modelos y métricas
 ```
 
 ---
@@ -91,10 +91,10 @@ Debes descargar manualmente el archivo `diabetic_data.csv` desde el sitio de UCI
 ## Flujo sugerido para los estudiantes
 
 1. Ejecutar `preprocess.py` para obtener el dataset limpio.
-2. Explorar los datos en `1.EDA.ipynb`.
-3. Entrenar y evaluar una regresión logística en `2.ModeloBase.ipynb`.
-4. Entrenar una red neuronal en `3.RedNeuronal.ipynb` (con early stopping desactivado para ver sobreajuste).
-5. Comparar ambos modelos en `4.Evaluacion.ipynb`.
+2. Explorar los datos en `EDA.ipynb`.
+3. Entrenar y evaluar una regresión logística en `ModeloBase.ipynb`.
+4. Entrenar una red neuronal en `RedNeuronal.ipynb` (con early stopping desactivado para ver sobreajuste).
+5. Comparar ambos modelos en `Evaluacion.ipynb`.
 
 ---
 
@@ -120,3 +120,11 @@ Debes descargar manualmente el archivo `diabetic_data.csv` desde el sitio de UCI
 
 📬 Para dudas o sugerencias, puedes contactar a:
 **Sebastián Olivares** – sebastian.olivares@uss.cl
+
+---
+
+## 🚀 Ejecutar en Google Colab
+
+Puedes ejecutar este proyecto directamente en Google Colab haciendo clic en el siguiente botón:
+
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Projects/HospitalReadmission/notebooks/runColab.ipynb)
