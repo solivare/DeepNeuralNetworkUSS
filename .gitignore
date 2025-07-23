@@ -318,3 +318,7 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,jupyternotebooks,python,intellij
 /Examples
+Examples/Fraud/data/creditcard.csv
+Examples/Fraud/data/processed/test.csv
+Examples/Fraud/data/processed/train_full.csv
+Examples/Fraud/data/processed/val.csv
