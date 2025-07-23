@@ -1,0 +1,12 @@
+# Configuración de entrenamiento y arquitectura del modelo
+
+batch_size: 32
+epochs: 20
+learning_rate: 0.001
+test_size: 0.2
+random_state: 42
+
+model:
+  hidden_layers: [64, 32]
+  activation: relu
+  output_activation: sigmoid
