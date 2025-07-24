@@ -2,6 +2,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.layers import Dropout
+
 
 def build_model(config, input_dim):
     """
@@ -17,6 +19,10 @@ def build_model(config, input_dim):
             model.add(Dense(units, activation=config["model"]["activation"],
                             kernel_regularizer=l2(0.001)))
     
+    # Añadir Dropout si la tasa es mayor que 0
+    dropout_rate = config["model"]["dropout_rate"]
+    if dropout_rate > 0:
+        model.add(Dropout(dropout_rate))
     model.add(Dense(1, activation=config["model"]["output_activation"]))
     
     model.compile(optimizer=Adam(learning_rate=config["learning_rate"]),

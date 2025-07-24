@@ -3,8 +3,8 @@ import numpy as np
 import os
 
 # Paths de entrada y salida
-INPUT_PATH = "../data/cs-training.csv"
-OUTPUT_PATH = "../data/credit_clean.csv"
+INPUT_PATH = "data\cs-training.csv"
+OUTPUT_PATH = "data\credit_clean.csv"
 
 def load_data(path):
     print(f"📥 Cargando datos desde {path}")
