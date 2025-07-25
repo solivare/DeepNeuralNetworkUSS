@@ -1,0 +1,15 @@
+# Librerías principales para deep learning e imágenes
+tensorflow>=2.10
+matplotlib
+seaborn
+numpy
+pandas
+scikit-learn
+tqdm
+opencv-python
+
+# Para cargar imágenes y generar estructuras de carpetas
+Pillow
+
+# Para manejar configuraciones
+pyyaml
