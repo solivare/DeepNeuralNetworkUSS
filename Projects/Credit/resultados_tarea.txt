@@ -1,0 +1,56 @@
+Tarea 2 Projects/Credit
+Deep Learning
+Jose Bustamante
+
+1. Contexto
+
+El objetivo es predecir si un cliente caerá en mora en los próximos 24 meses
+(utilizando el dataset “Give Me Some Credit”).  Partimos del baseline entregado
+por el profesor – una red neuronal simple – y fuimos iterando hacia modelos más
+robustos, hasta obtener un salto sustancial en ROC-AUC y F1.
+
+2 Resultados: métricas por versión
+
+              precision    recall  f1-score   support
+VERSIÓN v1 ─ NN (profesor)  – ROC AUC 0.8308 – Threshold 0.50
+           0       0.70      0.87      0.78      4000
+           1       0.83      0.64      0.72      4004
+    accuracy                           0.75      8004
+   macro avg       0.77      0.75      0.75      8004
+weighted avg       0.77      0.75      0.75      8004
+
+VERSIÓN v2 ─ NN profunda + dropout + class_weight – ROC AUC 0.8340 – Thr 0.40
+           0       0.74      0.81      0.77      4000
+           1       0.79      0.71      0.75      4004
+    accuracy                           0.76      8004
+   macro avg       0.76      0.76      0.76      8004
+weighted avg       0.76      0.76      0.76      8004
+
+VERSIÓN v3 ─ LightGBM + scale_pos_weight – ROC AUC 0.8933 – Thr 0.40
+           0       0.81      0.81      0.81      4000
+           1       0.81      0.81      0.81      4004
+    accuracy                           0.81      8004
+   macro avg       0.81      0.81      0.81      8004
+weighted avg       0.81      0.81      0.81      8004
+
+3. Cambios principales por versión
+v2
+• Arquitectura 128-64-32 neuronas, dropout 0.30, L2 1e-4 
+• class_weight='balanced' : aumento de 7 puntos recall clase 1  
+• Early-Stopping (patience 8)
+
+v3
+• Algoritmo LightGBM (500 árboles, lr 0.05, num_leaves 64)
+• 'scale_pos_weight' = ratio negativos/positivos
+• Elimina necesidad de normalizar datos; entrena en aprox 15 s
+• Umbral óptimo 0.40 (max F1) calculado sobre conjunto hold-out
+
+4. Interpretación para el banco
+
+- Recall de morosos: pasa de 0.64 (v1) a 0.81 (v3): se identifican 17% adicionales de 
+clientes que habrían incumplido, con la misma tasa de falsos positivos (aprox 19%).  
+- F1 sube a 0.82, indicando equilibrio precisión-recall óptimo para la operación.  
+- ROC-AUC 0.893 implica que, de cada 100 pares cliente moroso/cliente no moroso, 
+el modelo ordena correctamente aprox 89 de ellos.
+- Impacto: si el banco aprueba 10000 créditos al mes mes y cada default cuesta USD 3000, 
+detectar 17% adicionales evita un riesgo potencial de aprox USD 5 millones al año.

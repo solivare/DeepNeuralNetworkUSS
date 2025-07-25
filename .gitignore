@@ -1,0 +1,7 @@
+# entornos virtuales
+.venv/
+# caché python
+__pycache__/
+# macOS
+.DS_Store
+*.zip

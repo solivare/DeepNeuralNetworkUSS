@@ -1,0 +1,17 @@
+# Configuración de entrenamiento y arquitectura del modelo
+
+# antes: el código construía una red neuronal con 2 capas ocultas de 64 y 32 neuronas, respectivamente. 
+
+# Hiperparámetros globales
+run_id: v3_lgbm          # identifica este experimento
+
+# (No necesitas batches, dropout, etc. para GBoost)
+test_size: 0.2
+random_state: 42
+
+# hiperparámetros LightGBM
+lgbm:
+  num_leaves: 64
+  n_estimators: 500
+  learning_rate: 0.05
+  max_depth: -1            # −1 ⇒ sin límite
