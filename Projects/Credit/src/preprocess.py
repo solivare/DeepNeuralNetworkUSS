@@ -30,8 +30,61 @@ def impute_missing(df):
     return df
 
 def feature_engineering(df):
-    print("🛠️ Ingeniería de características...")
-    # Aquí podrían agregarse variables nuevas o transformaciones
+    """
+    Genera nuevas variables que combinan información existente para
+    mejorar el poder predictivo del modelo.  En concreto:
+
+    - ``TotalPastDue``: suma del número de retrasos de 30–59, 60–89 y >=90 días.
+    - ``MonthlyDebt``: estimación del pago de deuda mensual calculado como
+      ``DebtRatio * MonthlyIncome``.
+    - ``UtilizationPerLine``: ratio de utilización de líneas revolving por
+      cada línea de crédito abierta.
+    - ``RealEstateLoanRatio``: proporción de préstamos inmobiliarios
+      respecto al número total de líneas de crédito abiertas.
+
+    Cualquier valor infinito o NaN generado por divisiones se sustituye
+    por 0.
+    """
+    df = df.copy()
+    # Total de retrasos acumulados
+    df['TotalPastDue'] = (
+        df['NumberOfTime30-59DaysPastDueNotWorse']
+        + df['NumberOfTime60-89DaysPastDueNotWorse']
+        + df['NumberOfTimes90DaysLate']
+    )
+    # Estimación de deuda mensual
+    df['MonthlyDebt'] = df['DebtRatio'] * df['MonthlyIncome']
+    # Utilización promedio por línea de crédito (evitar dividir por cero)
+    df['UtilizationPerLine'] = df['RevolvingUtilizationOfUnsecuredLines'] / (
+        df['NumberOfOpenCreditLinesAndLoans'] + 1e-6
+    )
+    # Proporción de préstamos inmobiliarios sobre líneas abiertas
+    df['RealEstateLoanRatio'] = df['NumberRealEstateLoansOrLines'] / (
+        df['NumberOfOpenCreditLinesAndLoans'] + 1e-6
+    )
+    # Sustituir inf o NaN por 0
+    for col in ['UtilizationPerLine', 'RealEstateLoanRatio']:
+        df[col] = df[col].replace([np.inf, -np.inf], 0).fillna(0)
+    return df
+
+def remove_outliers(df: pd.DataFrame, lower_q: float = 0.01, upper_q: float = 0.99) -> pd.DataFrame:
+    """
+    Recorta cada variable numérica (excepto el target) a los cuantiles
+    especificados.  Esto atenúa la influencia de valores extremos sin
+    eliminar registros completos.
+
+    :param df: DataFrame de entrada.
+    :param lower_q: cuantil inferior (por defecto 0.01).
+    :param upper_q: cuantil superior (por defecto 0.99).
+    :returns: DataFrame con las columnas numéricas recortadas.
+    """
+    df = df.copy()
+    numeric_cols = df.select_dtypes(include=[np.number]).columns
+    for col in numeric_cols:
+        if col != 'SeriousDlqin2yrs':
+            lower = df[col].quantile(lower_q)
+            upper = df[col].quantile(upper_q)
+            df[col] = df[col].clip(lower, upper)
     return df
 
 def balance_dataset(df, target_col="SeriousDlqin2yrs", max_negatives=20000, positives_multiplier=2):
@@ -57,6 +110,7 @@ def main():
     df = load_data(INPUT_PATH)
     df = clean_data(df)
     df = impute_missing(df)
+    df = remove_outliers(df)
     df = feature_engineering(df)
     df = balance_dataset(df)
     save_data(df, OUTPUT_PATH)
