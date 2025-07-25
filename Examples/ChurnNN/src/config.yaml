@@ -2,7 +2,7 @@
 # Estos parámetros son cargados por main.ipynb y usados por model.py
 
 model:
-  hidden_units: [16, 8]       # Neuronas en capas ocultas
+  hidden_units: [16, 10]       # Neuronas en capas ocultas
   activation: relu            # Función de activación de las capas ocultas
   output_activation: sigmoid  # Activación de la salida (probabilidad de churn)
 
