@@ -87,19 +87,26 @@ def get_classification_metrics_df(y_true_log, y_pred_log, y_prob_log,
     df = pd.DataFrame(metrics)
     return df.set_index("Modelo").round(4)
 
-def plot_f1_vs_threshold(y_true, y_prob, thresholds=None, modelo="Modelo"):
-    if thresholds is None:
-        thresholds = np.linspace(0.0, 1.0, 100)
-    f1_scores = [f1_score(y_true, (y_prob > t).astype(int)) for t in thresholds]
+def plot_f1_vs_threshold(y_true, y_probs, modelo="Modelo"):
+    thresholds = np.arange(0.0, 1.01, 0.01)
+    f1_scores = [f1_score(y_true, (y_probs > t).astype(int)) for t in thresholds]
+
+    best_idx = np.argmax(f1_scores)
+    best_threshold = thresholds[best_idx]
+    best_f1 = f1_scores[best_idx]
 
     plt.figure(figsize=(8, 5))
-    plt.plot(thresholds, f1_scores, label=f"F1-score ({modelo})")
+    plt.plot(thresholds, f1_scores, label="F1-score")
+    plt.axvline(x=best_threshold, color='r', linestyle='--', label=f"Umbral óptimo = {best_threshold:.2f}")
+    plt.title(f"F1-score vs Threshold - {modelo}")
     plt.xlabel("Threshold")
     plt.ylabel("F1-score")
-    plt.title("F1-score vs Threshold")
-    plt.grid(True)
+    plt.grid()
     plt.legend()
+    plt.tight_layout()
     plt.show()
+
+    print(f"🔎 Mejor threshold para {modelo}: {best_threshold:.2f} con F1-score = {best_f1:.4f}")
 
 def plot_prediction_distribution(y_true, y_prob, log_scale=False):
     """
