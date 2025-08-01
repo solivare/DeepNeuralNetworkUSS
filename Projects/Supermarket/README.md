@@ -34,7 +34,7 @@ Examples/RetailProductClassification/
 
 Haz clic para abrir y ejecutar el proyecto en Colab:
 
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Examples/RetailProductClassification/notebooks/runColab.ipynb)
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/solivare/DeepNeuralNetworkUSS/blob/main/Projects/Supermarket/notebooks/runColab.ipynb)
 
 ---
 
