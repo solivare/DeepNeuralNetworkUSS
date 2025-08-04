@@ -17,47 +17,26 @@ def load_config(path="config.yaml"):
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
-
+# ⚠️ Este modelo es muy simple. Puedes mejorar arquitectura,
+# agregar regularización, más bloques, batch normalization, etc.
 def build_model(config, num_classes):
     input_shape = (
         config["image"]["height"],
         config["image"]["width"],
         config["image"]["channels"]
     )
-    
-    model = models.Sequential()
 
-    # 🧠 Bloque 1
-    model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape,
-                            kernel_regularizer=regularizers.l2(0.001)))
-    model.add(layers.MaxPooling2D((2, 2)))
-    model.add(layers.Dropout(0.25))  # Dropout temprano
-
-    # 🧠 Bloque 2
-    model.add(layers.Conv2D(64, (3, 3), activation='relu',
-                            kernel_regularizer=regularizers.l2(0.001)))
-    model.add(layers.MaxPooling2D((2, 2)))
-    model.add(layers.Dropout(0.25))
-
-    # 🧠 Bloque 3
-    model.add(layers.Conv2D(128, (3, 3), activation='relu',
-                            kernel_regularizer=regularizers.l2(0.001)))
-    model.add(layers.MaxPooling2D((2, 2)))
-    model.add(layers.Dropout(0.3))
-
-    # 🔄 Flatten y Fully Connected
-    model.add(layers.Flatten())
-    model.add(layers.Dense(128, activation='relu',
-                           kernel_regularizer=regularizers.l2(0.001)))
-    model.add(layers.Dropout(0.5))
-
-    # 🔚 Capa de salida
-    model.add(layers.Dense(num_classes, activation='softmax'))
+    model = models.Sequential([
+        layers.Conv2D(16, (3, 3), activation='relu', input_shape=input_shape),
+        layers.MaxPooling2D((2, 2)),
+        layers.Flatten(),
+        layers.Dense(64, activation='relu'),
+        layers.Dense(num_classes, activation='softmax')
+    ])
 
     model.compile(
-        optimizer='adam',
-        loss='categorical_crossentropy',
-        metrics=['accuracy']
+        optimizer=config["training"]["optimizer"],
+        loss="categorical_crossentropy",
+        metrics=["accuracy"]
     )
-
     return model
