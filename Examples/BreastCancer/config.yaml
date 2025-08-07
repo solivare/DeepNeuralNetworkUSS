@@ -1,0 +1,26 @@
+# Configuración de rutas
+paths:
+  raw_data: "../data/BreastCancer"                      # Carpeta base con estructura original
+  prepared_data: "../data/breast_images_prepared"       # (Opcional) carpeta para datos preprocesados
+  model: "../models/breast_model.keras"
+  absolute_data_path: "/Users/saolivap/WorkArea/samples/BreastCancer"  # Ruta local absoluta (solo si es necesario)
+
+# Imagen
+image:
+  height: 50
+  width: 50
+
+# Entrenamiento
+training:
+  batch_size: 32
+  epochs: 20
+  learning_rate: 0.001
+  seed: 42
+
+# Preprocesamiento
+preprocessing:
+  max_images_per_class: 500  # Dejar vacio para no limitar
+
+# Evaluación
+evaluation:
+  threshold: 0.5  # Umbral para clasificación binaria
