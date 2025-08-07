@@ -1,0 +1,21 @@
+# Configuración de rutas y parámetros
+
+paths:
+  raw_data: "/Users/saolivap/WorkArea/samples/GroceryStoreDataset/dataset"             # Ruta original descargada
+  prepared_data: "../data/items_prepared"          # Donde se copiarán las imágenes organizadas por clase
+  model: "../models/cnn_multiclass.keras"
+
+image:
+  height: 64
+  width: 64
+  channels: 3
+
+training:
+  batch_size: 64
+  epochs: 20
+  patience: 5
+  dropout: 0.5
+  optimizer: "adam"
+
+evaluation:
+  threshold: 0.5

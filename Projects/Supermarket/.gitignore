@@ -1,0 +1,6 @@
+# Projects/Supermarket/.gitignore
+data/
+*/__pycache__/
+*.ipynb_checkpoints/
+models/*.h5
+models/*.keras
