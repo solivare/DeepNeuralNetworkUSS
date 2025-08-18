@@ -26,13 +26,30 @@ def build_model(config, num_classes):
         config["image"]["channels"]
     )
 
-    model = models.Sequential([
-        layers.Conv2D(16, (3, 3), activation='relu', input_shape=input_shape),
-        layers.MaxPooling2D((2, 2)),
-        layers.Flatten(),
-        layers.Dense(64, activation='relu'),
-        layers.Dense(num_classes, activation='softmax')
-    ])
+    model = models.Sequential()
+
+    # Bloque 1
+    model.add(layers.Conv2D(32, (3, 3), activation="relu", padding="same", input_shape=input_shape))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D((2, 2)))
+    model.add(layers.Dropout(0.2))
+
+    # Bloque 2
+    model.add(layers.Conv2D(64, (3, 3), activation="relu", padding="same"))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D((2, 2)))
+    model.add(layers.Dropout(0.3))
+    
+    # ✅ AGREGAR CAPAS FALTANTES PARA CLASIFICACIÓN
+    # Aplanar la salida convolucional
+    model.add(layers.Flatten())
+    
+    # Capa densa oculta
+    model.add(layers.Dense(128, activation="relu"))
+    model.add(layers.Dropout(0.5))
+    
+    # Capa de salida con el número correcto de clases
+    model.add(layers.Dense(num_classes, activation="softmax"))
 
     model.compile(
         optimizer=config["training"]["optimizer"],

@@ -15,6 +15,8 @@ def collect_images(base_dir):
     
     for split in data.keys():
         split_path = os.path.join(base_dir, split)
+        if not os.path.isdir(split_path):
+            continue
         for category in os.listdir(split_path):  # Fruit / Vegetables / Packages
             category_path = os.path.join(split_path, category)
             if not os.path.isdir(category_path):
@@ -56,6 +58,9 @@ def summarize_data(output_dir):
         total = 0
         for class_name in os.listdir(split_path):
             class_path = os.path.join(split_path, class_name)
+            # Verificar que sea un directorio antes de intentar listarlo
+            if not os.path.isdir(class_path):
+                continue
             count = len(os.listdir(class_path))
             print(f"  {class_name}: {count}")
             total += count

@@ -1,8 +1,8 @@
 # Configuración de rutas y parámetros
 
 paths:
-  raw_data: "/Users/saolivap/WorkArea/samples/GroceryStoreDataset/dataset"             # Ruta original descargada
-  prepared_data: "../data/items_prepared"          # Donde se copiarán las imágenes organizadas por clase
+  raw_data: "/Users/sebazamorano/Downloads/subconjunto_items_comprimido"             # Ruta original descargada
+  prepared_data: "/Users/sebazamorano/Downloads/subconjunto_items_comprimido"          # Donde se copiarán las imágenes organizadas por clase
   model: "models/cnn_multiclass.keras"
 
 image:
