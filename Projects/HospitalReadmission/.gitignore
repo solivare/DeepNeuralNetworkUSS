@@ -1,0 +1,12 @@
+# Ignorar datasets pesados
+data/*.csv
+
+# Entorno virtual de este proyecto
+.venv/
+
+# Cachés de Python
+__pycache__/
+*.pyc
+
+# Checkpoints de Jupyter
+.ipynb_checkpoints/
