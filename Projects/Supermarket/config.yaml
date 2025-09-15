@@ -1,21 +1,12 @@
-# Configuración de rutas y parámetros
-
 paths:
-  raw_data: "/Users/saolivap/WorkArea/samples/GroceryStoreDataset/dataset"             # Ruta original descargada
-  prepared_data: "../data/items_prepared"          # Donde se copiarán las imágenes organizadas por clase
-  model: "models/cnn_multiclass.keras"
+  # Carpeta raíz con los 3 splits
+  raw_data: "Projects/Supermarket/data"
+  prepared_data: "Projects/Supermarket/data"
 
-image:
-  height: 64
-  width: 64
-  channels: 3
+  # Splits explícitos
+  train_dir: "Projects/Supermarket/data/train"
+  val_dir:   "Projects/Supermarket/data/val"
+  test_dir:  "Projects/Supermarket/data/test"
 
-training:
-  batch_size: 32
-  epochs: 20
-  patience: 5
-  dropout: 0.5
-  optimizer: "adam"
-
-evaluation:
-  threshold: 0.5
+  # Dónde guardaremos el modelo entrenado
+  model: "Projects/Supermarket/models/cnn_multiclass.pt"

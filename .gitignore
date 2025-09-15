@@ -1,0 +1,8 @@
+.venv/
+Projects/Supermarket/data/
+**/.ipynb_checkpoints/
+**/__pycache__/
+*.pt
+*.h5
+*.ckpt
+*.zip
