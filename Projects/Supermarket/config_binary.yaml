@@ -1,0 +1,41 @@
+# Configuración para experimento BINARIO (apple vs. not_apple)
+paths:
+  # CSVs generados con PowerShell (rutas relativas al notebook en /notebooks)
+  train_csv: "../lists/train_binary_apple.csv"
+  val_csv:   "../lists/val_binary_apple.csv"
+  test_csv:  "../lists/test_binary_apple.csv"
+
+  # Dónde guardar el mejor modelo
+  model: "../models/cnn_binary_apple.keras"
+
+image:
+  height: 64
+  width: 64
+  channels: 3
+
+training:
+  batch_size: 32
+  epochs: 20
+  patience: 5
+  optimizer: "adam"
+  seed: 42
+
+  # Pesos para desbalance (train: apple=268, not_apple=1324)
+  # Mapea índice 0 -> not_apple, índice 1 -> apple
+  class_weight:
+    "0": 0.60
+    "1": 2.97
+
+  # Métrica a monitorear (lo usaremos en callbacks)
+  monitor_metric: "val_auc_pr"
+
+evaluation:
+  # Etiqueta positiva y nombres legibles
+  positive_label: 1
+  label_names:
+    "0": "not_apple"
+    "1": "apple"
+
+  # Umbral para convertir probas->clase:
+  # "auto_f1" = elegir en validación el threshold que maximiza F1
+  threshold: "auto_f1"
